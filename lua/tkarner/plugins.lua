@@ -50,7 +50,6 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("folke/which-key.nvim")
-	use("Pocco81/auto-save.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -70,7 +69,8 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+  use { "williamboman/mason.nvim" }
+  use { "williamboman/mason-lspconfig.nvim" }
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
