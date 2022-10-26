@@ -78,23 +78,23 @@ telescope.setup({
 		},
 	},
 	pickers = {
-    buffers = {
-      show_all_buffers = true,
-      sort_lastused = true,
-      theme = "dropdown",
-      previewer = false,
-      mappings = {
-        i = {
-          ["<c-d>"] = "delete_buffer",
-        }
-      }
-    }
+		buffers = {
+			show_all_buffers = true,
+			sort_lastused = true,
+			theme = "dropdown",
+			previewer = false,
+			mappings = {
+				i = {
+					["<c-d>"] = "delete_buffer",
+				},
+			},
+		},
 	},
 	extensions = {
-		-- Your extension configuration goes here:
-		-- extension_name = {
-		--   extension_config_key = value,
-		-- }
-		-- please take a look at the readme of the extension you want to configure
+		["ui-select"] = {
+			require("telescope.themes").get_cursor({}),
+		},
 	},
 })
+
+require("telescope").load_extension("ui-select")

@@ -69,12 +69,13 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-  use { "williamboman/mason.nvim" }
-  use { "williamboman/mason-lspconfig.nvim" }
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/mason-lspconfig.nvim" })
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-ui-select.nvim")
 
 	-- Treesitter
 	use({
@@ -87,8 +88,8 @@ return packer.startup(function(use)
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-  -- Flutter
-  use("akinsho/flutter-tools.nvim")
+	-- Flutter
+	use("akinsho/flutter-tools.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
