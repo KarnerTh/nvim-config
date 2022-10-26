@@ -121,8 +121,6 @@ local mappings = {
 			"Workspace Diagnostics",
 		},
 		f = { "<cmd>Format<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
 		j = {
 			"<cmd>lua vim.diagnostic.goto_next()<CR>",
 			"Next Diagnostic",
@@ -138,6 +136,25 @@ local mappings = {
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
+		},
+		t = {
+			name = "Telescope",
+			r = {
+				"<cmd>lua require 'telescope.builtin'.lsp_references { jump_type = 'never' }<cr>",
+				"References",
+			},
+			d = {
+				"<cmd>lua require 'telescope.builtin'.lsp_definitions { jump_type = 'never' }<cr>",
+				"Definitions",
+			},
+			i = {
+				"<cmd>lua require 'telescope.builtin'.lsp_implementations { jump_type = 'never' }<cr>",
+				"Implementations",
+			},
+			t = {
+				"<cmd>lua require 'telescope.builtin'.lsp_type_definitions { jump_type = 'never' }<cr>",
+				"Type Definition",
+			},
 		},
 	},
 	s = {
