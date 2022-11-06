@@ -6,5 +6,8 @@ require("flutter-tools").setup({
 	lsp = {
 		on_attach = require("tkarner.lsp.handlers").on_attach,
 		capabilities = require("tkarner.lsp.handlers").capabilities,
+		settings = {
+			lineLength = 120,
+		},
 	},
 })
