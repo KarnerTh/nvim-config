@@ -91,6 +91,11 @@ return packer.startup(function(use)
 	-- Flutter
 	use("akinsho/flutter-tools.nvim")
 
+	-- sql
+	use({ "tpope/vim-dadbod" })
+	use({ "kristijanhusak/vim-dadbod-ui" })
+	use("kristijanhusak/vim-dadbod-completion")
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

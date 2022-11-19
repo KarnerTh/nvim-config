@@ -171,6 +171,13 @@ local mappings = {
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
+	d = {
+		name = "Database",
+		u = { "<cmd>DBUIToggle<cr>", "Toggle DB" },
+		f = { "<cmd>DBUIFindBuffer<cr>", "Find buffer" },
+		r = { "<cmd>DBUIRenameBuffer<cr>", "Rename buffer" },
+		l = { "<cmd>DBUILastQueryInfo<cr>", "Last query info" },
+	},
 }
 
 local vopts = {
