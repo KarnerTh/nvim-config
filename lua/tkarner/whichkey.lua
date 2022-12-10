@@ -172,15 +172,22 @@ local mappings = {
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
 	d = {
-		name = "Database",
-		u = { "<cmd>DBUIToggle<cr>", "Toggle DB" },
-		f = { "<cmd>DBUIFindBuffer<cr>", "Find buffer" },
-		r = { "<cmd>DBUIRenameBuffer<cr>", "Rename buffer" },
-		l = { "<cmd>DBUILastQueryInfo<cr>", "Last query info" },
+		name = "Debug",
+		u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
+		b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+		t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
+		c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
 	},
 	x = {
 		name = "Util",
 		t = { "<cmd>TodoTelescope<cr>", "Todos" },
+		d = {
+			name = "Database",
+			u = { "<cmd>DBUIToggle<cr>", "Toggle DB" },
+			f = { "<cmd>DBUIFindBuffer<cr>", "Find buffer" },
+			r = { "<cmd>DBUIRenameBuffer<cr>", "Rename buffer" },
+			l = { "<cmd>DBUILastQueryInfo<cr>", "Last query info" },
+		},
 	},
 }
 
