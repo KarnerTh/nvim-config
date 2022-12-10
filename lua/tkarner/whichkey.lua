@@ -178,6 +178,10 @@ local mappings = {
 		r = { "<cmd>DBUIRenameBuffer<cr>", "Rename buffer" },
 		l = { "<cmd>DBUILastQueryInfo<cr>", "Last query info" },
 	},
+	x = {
+		name = "Util",
+		t = { "<cmd>TodoTelescope<cr>", "Todos" },
+	},
 }
 
 local vopts = {

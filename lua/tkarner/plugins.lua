@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	use("akinsho/toggleterm.nvim")
 	use("nvim-lualine/lualine.nvim")
 	use("folke/which-key.nvim")
+	use("folke/todo-comments.nvim")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin

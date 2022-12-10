@@ -14,5 +14,6 @@ require("tkarner.toggleterm")
 require("tkarner.lualine")
 require("tkarner.whichkey")
 require("tkarner.flutter-tools")
+require("tkarner.todo-comments")
 
 vim.cmd("colorscheme darkplus")
