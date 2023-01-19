@@ -18,5 +18,6 @@ require("tkarner.flutter-tools")
 require("tkarner.todo-comments")
 require("tkarner.gopher")
 require("tkarner.nvim-test")
+require("tkarner.nvim-scrollbar")
 
 vim.cmd("colorscheme darkplus")

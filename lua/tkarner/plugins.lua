@@ -52,6 +52,7 @@ return packer.startup(function(use)
 	use("folke/which-key.nvim")
 	use("folke/todo-comments.nvim")
 	use("klen/nvim-test")
+	use("petertriho/nvim-scrollbar")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
