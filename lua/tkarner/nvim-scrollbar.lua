@@ -1,1 +1,7 @@
-require("scrollbar").setup()
+require("scrollbar").setup({
+	excluded_filetypes = {
+		"NvimTree",
+		"prompt",
+		"TelescopePrompt",
+	},
+})
