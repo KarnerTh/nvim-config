@@ -180,6 +180,7 @@ local mappings = {
 	},
 	x = {
 		name = "Util",
+		m = { "<cmd>Telescope marks<cr>", "Marks" },
 		t = { "<cmd>TodoTelescope<cr>", "Todos" },
 		d = {
 			name = "Database",
