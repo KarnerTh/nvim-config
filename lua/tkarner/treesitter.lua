@@ -9,6 +9,7 @@ configs.setup({
 		"gomod",
 		"gowork",
 		"html",
+		"css",
 		"javascript",
 		"jsdoc",
 		"json",
