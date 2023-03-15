@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local servers = { "sumneko_lua", "gopls", "svelte", "tsserver" }
+local servers = { "sumneko_lua", "gopls", "svelte", "tsserver", "cssls" }
 
 for _, server in pairs(servers) do
 	local opts = {
