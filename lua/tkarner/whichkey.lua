@@ -107,6 +107,7 @@ local mappings = {
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
+		s = { "<cmd>Telescope git_status <cr>", "Show status" },
 	},
 
 	l = {
