@@ -41,6 +41,11 @@ local location = {
 	padding = 0,
 }
 
+local filename = {
+	"filename",
+	path = 1,
+}
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
@@ -54,7 +59,7 @@ lualine.setup({
 	sections = {
 		lualine_a = { branch },
 		lualine_b = {},
-		lualine_c = { diagnostics },
+		lualine_c = { diagnostics, filename },
 		lualine_x = { diff, "encoding", filetype },
 		lualine_y = { location },
 		lualine_z = {},
