@@ -2,6 +2,7 @@ local configs = require("nvim-treesitter.configs")
 configs.setup({
 	ensure_installed = {
 		"bash",
+		"css",
 		"dart",
 		"dockerfile",
 		"gitignore",
@@ -9,7 +10,6 @@ configs.setup({
 		"gomod",
 		"gowork",
 		"html",
-		"css",
 		"javascript",
 		"jsdoc",
 		"json",
@@ -24,6 +24,7 @@ configs.setup({
 		"typescript",
 		"vim",
 		"yaml",
+		"graphql",
 	},
 	sync_install = false,
 	ignore_install = { "" }, -- List of parsers to ignore installing
