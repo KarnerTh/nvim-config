@@ -99,7 +99,6 @@ nvim_tree.setup({
 	},
 	view = {
 		width = 30,
-		hide_root_folder = true,
 		side = "left",
 		adaptive_size = true,
 		number = true,
@@ -111,6 +110,7 @@ nvim_tree.setup({
 		},
 	},
 	renderer = {
+		root_folder_label = false,
 		icons = {
 			git_placement = "after",
 			show = {
