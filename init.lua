@@ -20,4 +20,4 @@ require("tkarner.gopher")
 require("tkarner.nvim-test")
 require("tkarner.nvim-scrollbar")
 
-vim.cmd("colorscheme darkplus")
+vim.cmd("colorscheme everforest")

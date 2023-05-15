@@ -68,7 +68,8 @@ return packer.startup(function(use)
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- colorschemes
-	use("lunarvim/darkplus.nvim")
+	-- use("lunarvim/darkplus.nvim")
+	use("sainnhe/everforest")
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
