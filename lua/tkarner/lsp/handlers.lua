@@ -76,6 +76,11 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
+	if client.name == "tsserver" then
+		-- disable tsserver formatter, because prettier is used
+		client.server_capabilities.documentFormattingProvider = false
+	end
+
 	lsp_keymaps(bufnr)
 	lsp_highlight_document(client)
 end

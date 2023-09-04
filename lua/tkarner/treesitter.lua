@@ -15,6 +15,7 @@ configs.setup({
 		"json",
 		"lua",
 		"make",
+		"prisma",
 		"markdown",
 		"regex",
 		"scss",

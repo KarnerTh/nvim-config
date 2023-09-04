@@ -77,19 +77,27 @@ telescope.setup({
 			},
 		},
 	},
-	pickers = {
-		buffers = {
-			show_all_buffers = true,
-			sort_lastused = true,
-			theme = "dropdown",
-			previewer = false,
-			mappings = {
-				i = {
-					["<c-d>"] = "delete_buffer",
-				},
-			},
-		},
-	},
+  pickers = {
+    find_files = {
+      hidden = true
+    },
+    live_grep = {
+      additional_args = function(opts)
+        return { "--hidden" }
+      end
+    },
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+      theme = "dropdown",
+      previewer = false,
+      mappings = {
+        i = {
+          ["<c-d>"] = "delete_buffer",
+        },
+      },
+    },
+  },
 	extensions = {
 		["ui-select"] = {
 			require("telescope.themes").get_cursor({
