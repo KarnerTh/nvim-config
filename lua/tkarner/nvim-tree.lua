@@ -141,5 +141,7 @@ nvim_tree.setup({
 			enable = true,
 		},
 	},
-	sort_by = "insert_after_current",
+	sort = {
+		sorter = "name",
+	},
 })
