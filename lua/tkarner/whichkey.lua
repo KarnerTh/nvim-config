@@ -88,7 +88,6 @@ local mappings = {
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["f"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
 	["F"] = { "<cmd>Telescope live_grep <cr>", "Find Text" },
-
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -97,7 +96,6 @@ local mappings = {
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
-
 	g = {
 		name = "Git",
 		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
@@ -109,7 +107,6 @@ local mappings = {
 		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
 		s = { "<cmd>Telescope git_status <cr>", "Show status" },
 	},
-
 	l = {
 		name = "LSP",
 		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -164,7 +161,6 @@ local mappings = {
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		f = { "<cmd>NvimTreeFindFile<cr>", "Find File in Explorer" },
 	},
-
 	t = {
 		name = "Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
@@ -183,6 +179,7 @@ local mappings = {
 		name = "Util",
 		m = { "<cmd>Telescope marks<cr>", "Marks" },
 		t = { "<cmd>TodoTelescope<cr>", "Todos" },
+		F = { "<cmd>Telescope grep_string search= <cr>", "Find Text with fzf" },
 		d = {
 			name = "Database",
 			u = { "<cmd>DBUIToggle<cr>", "Toggle DB" },
