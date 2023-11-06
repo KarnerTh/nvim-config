@@ -106,6 +106,7 @@ local mappings = {
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
 		s = { "<cmd>Telescope git_status <cr>", "Show status" },
+		b = { "<cmd>ToggleBlame <cr>", "Toggle git blame" },
 	},
 	l = {
 		name = "LSP",
