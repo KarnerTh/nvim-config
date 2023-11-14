@@ -44,23 +44,15 @@ keymap("n", "<A-f>", ":Telescope flutter commands<CR>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-
 -- keep yanked value after paste
 keymap("v", "p", '"_dP', opts)
 
--- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 -- center screen when navigating
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzz", opts)
 keymap("n", "N", "Nzz", opts)
-
