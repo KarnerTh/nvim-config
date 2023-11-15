@@ -1,10 +1,10 @@
 local opts = {
-  mode = "n",    -- NORMAL mode
+  mode = "n",
   prefix = "<leader>",
-  buffer = nil,  -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true,
+  noremap = true,
+  nowait = true,
 }
 
 local mappings = {
@@ -14,25 +14,25 @@ local mappings = {
     "Buffers",
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["w"] = { "<cmd>w<CR>", "Save" },
-  ["q"] = { "<cmd>q<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["C"] = { "<cmd>:bufdo :Bdelete<CR>", "Close All Buffers" },
-	["z"] = { "<cmd>:%bd|e#|bd#<CR>", "Close All Buffers except current one" }, -- https://stackoverflow.com/a/42071865
+  ["z"] = { "<cmd>:%bd|e#|bd#<CR>", "Close All Buffers except current one" }, -- https://stackoverflow.com/a/42071865
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
   ["F"] = { "<cmd>Telescope live_grep <cr>", "Find Text" },
   g = {
     name = "Git",
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+    j = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
+    k = { "<cmd>Gitsigns prev_hunk<cr>", "Prev Hunk" },
+    l = { "<cmd>Gitsigns blame_line<cr>", "Blame" },
+    p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Hunk" },
+    r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
+    R = { "<cmd>Gitsigns reset_buffer)<cr>", "Reset Buffer" },
     d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
     s = { "<cmd>Telescope git_status <cr>", "Show status" },
     b = { "<cmd>ToggleBlame <cr>", "Toggle git blame" },
+    a = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
+    A = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" }
   },
   l = {
     name = "LSP",
@@ -101,26 +101,27 @@ local mappings = {
     t = { "<cmd>TodoTelescope<cr>", "Todos" },
     F = { "<cmd>Telescope grep_string search= <cr>", "Find Text with fzf" },
     i = { "<cmd>IBLToggle<cr>", "Toggle indent lines" },
+    f = { "<cmd>Telescope flutter commands<cr>", "Flutter commands" }
   },
 }
 
 local vopts = {
-  mode = "v",    -- VISUAL mode
+  mode = "v",
   prefix = "<leader>",
-  buffer = nil,  -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true,
+  noremap = true,
+  nowait = true,
 }
+
 local vmappings = {
-  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment" },
+  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment (gc)" },
 }
 
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   init = function()
-    vim.o.timeout = true
     vim.o.timeoutlen = 300
 
     local wk = require("which-key")
@@ -129,29 +130,19 @@ return {
   end,
   opts = {
     plugins = {
-      marks = false,  -- shows a list of your marks on ' and `
+      marks = false,     -- shows a list of your marks on ' and `
       registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
       -- the presets plugin, adds help for a bunch of default keybindings in Neovim
       -- No actual key bindings are created
       presets = {
-        operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-        motions = false,  -- adds help for motions
+        operators = false,    -- adds help for operators like d, y, ... and registers them for motion / text object completion
+        motions = false,      -- adds help for motions
         text_objects = false, -- help for text objects triggered after entering an operator
-        windows = true,   -- default bindings on <c-w>
-        nav = true,       -- misc bindings to work with windows
-        z = false,        -- bindings for folds, spelling and others prefixed with z
-        g = false,        -- bindings for prefixed with g
+        windows = true,       -- default bindings on <c-w>
+        nav = true,           -- misc bindings to work with windows
+        z = false,            -- bindings for folds, spelling and others prefixed with z
+        g = false,            -- bindings for prefixed with g
       },
-    },
-    -- add operators that will trigger motion and text object completion
-    -- to enable all native operators, set the preset / operators plugin above
-    -- operators = { gc = "Comments" },
-    key_labels = {
-      -- override the label used to display some keys. It doesn't effect WK in any other way.
-      -- For example:
-      -- ["<space>"] = "SPC",
-      -- ["<cr>"] = "RET",
-      -- ["<tab>"] = "TAB",
     },
     icons = {
       breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
@@ -160,25 +151,25 @@ return {
     },
     popup_mappings = {
       scroll_down = "<c-d>", -- binding to scroll down inside the popup
-      scroll_up = "<c-u>", -- binding to scroll up inside the popup
+      scroll_up = "<c-u>",   -- binding to scroll up inside the popup
     },
     window = {
-      border = "rounded",    -- none, single, double, shadow
-      position = "bottom",   -- bottom, top
-      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-      padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+      border = "rounded",       -- none, single, double, shadow
+      position = "bottom",      -- bottom, top
+      margin = { 0, 0, 0, 0 },  -- extra window margin [top, right, bottom, left]
+      padding = { 0, 0, 0, 0 }, -- extra window padding [top, right, bottom, left]
       winblend = 0,
     },
     layout = {
-      height = { min = 4, max = 25 },                                           -- min and max height of the columns
-      width = { min = 20, max = 50 },                                           -- min and max width of the columns
-      spacing = 3,                                                              -- spacing between columns
-      align = "left",                                                           -- align columns left, center or right
+      height = { min = 4, max = 25 },                                             -- min and max height of the columns
+      width = { min = 20, max = 50 },                                             -- min and max width of the columns
+      spacing = 1,                                                                -- spacing between columns
+      align = "left",                                                             -- align columns left, center or right
     },
-    ignore_missing = true,                                                      -- enable this to hide mappings for which you didn't specify a label
+    ignore_missing = true,                                                        -- enable this to hide mappings for which you didn't specify a label
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    show_help = true,                                                           -- show help message on the command line when the popup is visible
-    triggers = "auto",                                                          -- automatically setup triggers
+    show_help = false,                                                            -- show help message on the command line when the popup is visible
+    triggers = "auto",                                                            -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
     triggers_blacklist = {
       -- list of mode / prefixes that should never be hooked by WhichKey

@@ -14,4 +14,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = { { import = "tkarner.plugins" } },
   install = { colorscheme = { "everforest" } },
+  change_detection = { notify = false }
 })
