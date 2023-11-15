@@ -4,7 +4,6 @@ return {
     excluded_filetypes = {
       "NvimTree",
       "prompt",
-      "TelescopePrompt",
     },
   },
 }

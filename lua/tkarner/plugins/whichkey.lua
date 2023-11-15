@@ -9,17 +9,14 @@ local opts = {
 
 local mappings = {
   ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise()<CR>', "Comment" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
+  ["b"] = { "<cmd>FzfLua buffers<cr>", "Buffers", },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["C"] = { "<cmd>:bufdo :Bdelete<CR>", "Close All Buffers" },
   ["z"] = { "<cmd>:%bd|e#|bd#<CR>", "Close All Buffers except current one" }, -- https://stackoverflow.com/a/42071865
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
-  ["F"] = { "<cmd>Telescope live_grep <cr>", "Find Text" },
+  ["f"] = { "<cmd>FzfLua files<CR>", "Find Files" },
+  ["F"] = { "<cmd>FzfLua live_grep_native <cr>", "Find Text" },
   g = {
     name = "Git",
     j = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
@@ -29,7 +26,7 @@ local mappings = {
     r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
     R = { "<cmd>Gitsigns reset_buffer)<cr>", "Reset Buffer" },
     d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-    s = { "<cmd>Telescope git_status <cr>", "Show status" },
+    s = { "<cmd>FzfLua git_status <cr>", "Show status" },
     b = { "<cmd>ToggleBlame <cr>", "Toggle git blame" },
     a = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
     A = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" }
@@ -38,11 +35,11 @@ local mappings = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
     d = {
-      "<cmd>Telescope diagnostics bufnr=0<cr>",
+      "<cmd>FzfLua diagnostics_workspace<cr>",
       "Document Diagnostics",
     },
     w = {
-      "<cmd>Telescope diagnostics<cr>",
+      "<cmd>FzfLua diagnostics_workspace<cr>",
       "Workspace Diagnostics",
     },
     f = { "<cmd>Format<cr>", "Format" },
@@ -57,35 +54,11 @@ local mappings = {
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
-    t = {
-      name = "Telescope",
-      r = {
-        "<cmd>lua require 'telescope.builtin'.lsp_references { jump_type = 'never' }<cr>",
-        "References",
-      },
-      d = {
-        "<cmd>lua require 'telescope.builtin'.lsp_definitions { jump_type = 'never' }<cr>",
-        "Definitions",
-      },
-      i = {
-        "<cmd>lua require 'telescope.builtin'.lsp_implementations { jump_type = 'never' }<cr>",
-        "Implementations",
-      },
-      t = {
-        "<cmd>lua require 'telescope.builtin'.lsp_type_definitions { jump_type = 'never' }<cr>",
-        "Type Definition",
-      },
-    },
   },
   s = {
     name = "Search",
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    r = { "<cmd>Fzf oldfiles<cr>", "Open Recent File" },
+    R = { "<cmd>Fzf registers<cr>", "Registers" },
     f = { "<cmd>NvimTreeFindFile<cr>", "Find File in Explorer" },
   },
   d = {
@@ -97,11 +70,8 @@ local mappings = {
   },
   x = {
     name = "Util",
-    m = { "<cmd>Telescope marks<cr>", "Marks" },
-    t = { "<cmd>TodoTelescope<cr>", "Todos" },
-    F = { "<cmd>Telescope grep_string search= <cr>", "Find Text with fzf" },
+    m = { "<cmd>FzfLua marks<cr>", "Marks" },
     i = { "<cmd>IBLToggle<cr>", "Toggle indent lines" },
-    f = { "<cmd>Telescope flutter commands<cr>", "Flutter commands" }
   },
 }
 
