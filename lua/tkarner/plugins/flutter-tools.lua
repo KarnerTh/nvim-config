@@ -1,5 +1,6 @@
 return {
   "akinsho/flutter-tools.nvim",
+  event = "VeryLazy",
   opts = {
     fvm = true,
     dev_log = {
