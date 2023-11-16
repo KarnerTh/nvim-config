@@ -10,6 +10,7 @@ local servers = {
   "prismals",
   "graphql",
   "jsonls",
+  "eslint"
 }
 
 for _, server in pairs(servers) do
