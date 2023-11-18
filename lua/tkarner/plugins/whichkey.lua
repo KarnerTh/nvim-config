@@ -72,6 +72,7 @@ local mappings = {
     name = "Util",
     m = { "<cmd>FzfLua marks<cr>", "Marks" },
     i = { "<cmd>IBLToggle<cr>", "Toggle indent lines" },
+    d = { "<cmd>lua require('dbee').toggle()<cr>", "Toggle sql ide" },
   },
 }
 
