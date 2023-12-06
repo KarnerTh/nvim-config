@@ -81,6 +81,8 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     -- disable tsserver formatter, because prettier is used
     client.server_capabilities.documentFormattingProvider = false
+  elseif client.name == "jsonls" then
+    client.server_capabilities.documentFormattingProvider = false
   end
 
   lsp_keymaps(bufnr)
