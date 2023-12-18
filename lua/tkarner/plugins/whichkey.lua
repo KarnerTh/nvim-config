@@ -13,10 +13,11 @@ local mappings = {
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["C"] = { "<cmd>:bufdo :Bdelete<CR>", "Close All Buffers" },
-  ["z"] = { "<cmd>:%bd|e#|bd#<CR>", "Close All Buffers except current one" }, -- https://stackoverflow.com/a/42071865
+  ["z"] = { "<cmd>:%bd|e#|bd#<CR>", " lose All Buffers except current one" }, -- https://stackoverflow.com/a/42071865
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["f"] = { "<cmd>FzfLua files<CR>", "Find Files" },
-  ["F"] = { "<cmd>FzfLua live_grep_native <cr>", "Find Text" },
+  ["F"] = { "<cmd>FzfLua grep search= <cr>", "Find Text" },
+  ["r"] = { "<cmd>FzfLua resume <cr>", "Resume fzf" },
   g = {
     name = "Git",
     j = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
