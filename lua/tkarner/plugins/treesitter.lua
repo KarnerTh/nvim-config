@@ -47,10 +47,6 @@ return {
         enable = true,
       },
       indent = { enable = true, disable = { "yaml" } },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
     })
   end,
 }

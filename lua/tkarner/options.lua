@@ -32,5 +32,8 @@ vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17"
 vim.opt.colorcolumn = "80"
 
+-- https://github.com/JoosepAlviste/nvim-ts-context-commentstring?tab=readme-ov-file#getting-started
+vim.g.skip_ts_context_commentstring_module = true
+
 vim.opt.shortmess:append("c")
 vim.opt.iskeyword:append("-")
