@@ -9,7 +9,6 @@ return {
       debug = false,
       sources = {
         formatting.prettier,
-        formatting.prettierd,
       }
     })
   end,
