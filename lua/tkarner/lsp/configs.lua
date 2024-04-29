@@ -1,16 +1,24 @@
 local lspconfig = require("lspconfig")
 local servers = {
-  "lua_ls",
-  "gopls",
-  "svelte",
-  "tsserver",
   "cssls",
+  "eslint",
+  "gopls",
   "graphql",
-  "terraformls",
-  "prismals",
   "graphql",
   "jsonls",
-  "eslint"
+  "lua_ls",
+  "prismals",
+  "svelte",
+  "terraformls",
+  "tsserver",
+  "yamlls",
+  "vacuum"
+}
+
+vim.filetype.add {
+  pattern = {
+    ['.*/api_defs/.*%.yaml'] = 'yaml.openapi',
+  },
 }
 
 for _, server in pairs(servers) do
