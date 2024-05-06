@@ -12,7 +12,8 @@ local servers = {
   "terraformls",
   "tsserver",
   "yamlls",
-  "vacuum"
+  "vacuum",
+  "csharp_ls"
 }
 
 vim.filetype.add {
