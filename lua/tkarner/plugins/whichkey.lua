@@ -27,10 +27,11 @@ local mappings = {
     r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
     R = { "<cmd>Gitsigns reset_buffer)<cr>", "Reset Buffer" },
     d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-    s = { "<cmd>FzfLua git_status <cr>", "Show status" },
     b = { "<cmd>ToggleBlame <cr>", "Toggle git blame" },
     a = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
-    A = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" }
+    A = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" },
+    s = { "<cmd>FzfLua git_status <cr>", "Show status" },
+    c = { "<cmd>FzfLua git_commits <cr>", "Commits" },
   },
   l = {
     name = "LSP",
