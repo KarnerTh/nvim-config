@@ -7,88 +7,54 @@ local opts = {
   nowait = true,
 }
 
-local mappings = {
-  ["/"] = { '<cmd>lua require("Comment.api").toggle.linewise()<CR>', "Comment" },
-  ["b"] = { "<cmd>FzfLua buffers<cr>", "Buffers", },
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["C"] = { "<cmd>:bufdo :Bdelete<CR>", "Close All Buffers" },
-  ["z"] = { "<cmd>:%bd|e#|bd#<CR>", " lose All Buffers except current one" }, -- https://stackoverflow.com/a/42071865
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = { "<cmd>FzfLua files<CR>", "Find Files" },
-  ["F"] = { "<cmd>FzfLua grep search= <cr>", "Find Text" },
-  ["r"] = { "<cmd>FzfLua resume <cr>", "Resume fzf" },
-  g = {
-    name = "Git",
-    j = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
-    k = { "<cmd>Gitsigns prev_hunk<cr>", "Prev Hunk" },
-    l = { "<cmd>Gitsigns blame_line<cr>", "Blame" },
-    p = { "<cmd>Gitsigns preview_hunk<cr>", "Preview Hunk" },
-    r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
-    R = { "<cmd>Gitsigns reset_buffer)<cr>", "Reset Buffer" },
-    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-    b = { "<cmd>ToggleBlame <cr>", "Toggle git blame" },
-    a = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
-    A = { "<cmd>Gitsigns stage_buffer<cr>", "Stage buffer" },
-    s = { "<cmd>FzfLua git_status <cr>", "Show status" },
-    c = { "<cmd>FzfLua git_commits <cr>", "Commits" },
-  },
-  l = {
-    name = "LSP",
-    a = { "<cmd>FzfLua lsp_code_actions <cr>", "Code Action" },
-    d = {
-      "<cmd>FzfLua diagnostics_workspace<cr>",
-      "Document Diagnostics",
-    },
-    w = {
-      "<cmd>FzfLua diagnostics_workspace<cr>",
-      "Workspace Diagnostics",
-    },
-    f = { "<cmd>Format<cr>", "Format" },
-    j = {
-      "<cmd>lua vim.diagnostic.goto_next()<CR>",
-      "Next Diagnostic",
-    },
-    k = {
-      "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-      "Prev Diagnostic",
-    },
-    l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-  },
-  s = {
-    name = "Search",
-    r = { "<cmd>Fzf oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Fzf registers<cr>", "Registers" },
-    f = { "<cmd>NvimTreeFindFile<cr>", "Find File in Explorer" },
-  },
-  d = {
-    name = "Debug",
-    u = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle UI" },
-    b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    t = { "<cmd>lua require('dap-go').debug_test()<cr>", "Debug Test" },
-    c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
-  },
-  x = {
-    name = "Util",
-    m = { "<cmd>FzfLua marks<cr>", "Marks" },
-    i = { "<cmd>IBLToggle<cr>", "Toggle indent lines" },
-    d = { "<cmd>lua require('dbee').toggle()<cr>", "Toggle sql ide" },
-  },
-}
-
-local vopts = {
-  mode = "v",
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true,
-  noremap = true,
-  nowait = true,
-}
-
-local vmappings = {
-  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>', "Comment (gc)" },
+local mappings =
+{
+  { "<leader>/",  '<cmd>lua require("Comment.api").toggle.linewise()<CR>', desc = "Comment",                              nowait = true, remap = false },
+  { "<leader>C",  "<cmd>:bufdo :Bdelete<CR>",                              desc = "Close All Buffers",                    nowait = true, remap = false },
+  { "<leader>F",  "<cmd>FzfLua grep search= <cr>",                         desc = "Find Text",                            nowait = true, remap = false },
+  { "<leader>b",  "<cmd>FzfLua buffers<cr>",                               desc = "Buffers",                              nowait = true, remap = false },
+  { "<leader>c",  "<cmd>Bdelete!<CR>",                                     desc = "Close Buffer",                         nowait = true, remap = false },
+  { "<leader>d",  group = "Debug",                                         nowait = true,                                 remap = false },
+  { "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<cr>",       desc = "Toggle Breakpoint",                    nowait = true, remap = false },
+  { "<leader>dc", "<cmd>lua require('dap').continue()<cr>",                desc = "Continue",                             nowait = true, remap = false },
+  { "<leader>dt", "<cmd>lua require('dap-go').debug_test()<cr>",           desc = "Debug Test",                           nowait = true, remap = false },
+  { "<leader>du", "<cmd>lua require('dapui').toggle()<cr>",                desc = "Toggle UI",                            nowait = true, remap = false },
+  { "<leader>e",  "<cmd>NvimTreeToggle<cr>",                               desc = "Explorer",                             nowait = true, remap = false },
+  { "<leader>f",  "<cmd>FzfLua files<CR>",                                 desc = "Find Files",                           nowait = true, remap = false },
+  { "<leader>g",  group = "Git",                                           nowait = true,                                 remap = false },
+  { "<leader>gA", "<cmd>Gitsigns stage_buffer<cr>",                        desc = "Stage buffer",                         nowait = true, remap = false },
+  { "<leader>gR", "<cmd>Gitsigns reset_buffer)<cr>",                       desc = "Reset Buffer",                         nowait = true, remap = false },
+  { "<leader>ga", "<cmd>Gitsigns stage_hunk<cr>",                          desc = "Stage hunk",                           nowait = true, remap = false },
+  { "<leader>gb", "<cmd>ToggleBlame <cr>",                                 desc = "Toggle git blame",                     nowait = true, remap = false },
+  { "<leader>gc", "<cmd>FzfLua git_commits <cr>",                          desc = "Commits",                              nowait = true, remap = false },
+  { "<leader>gd", "<cmd>Gitsigns diffthis HEAD<cr>",                       desc = "Diff",                                 nowait = true, remap = false },
+  { "<leader>gj", "<cmd>Gitsigns next_hunk<cr>",                           desc = "Next Hunk",                            nowait = true, remap = false },
+  { "<leader>gk", "<cmd>Gitsigns prev_hunk<cr>",                           desc = "Prev Hunk",                            nowait = true, remap = false },
+  { "<leader>gl", "<cmd>Gitsigns blame_line<cr>",                          desc = "Blame",                                nowait = true, remap = false },
+  { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>",                        desc = "Preview Hunk",                         nowait = true, remap = false },
+  { "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>",                          desc = "Reset Hunk",                           nowait = true, remap = false },
+  { "<leader>gs", "<cmd>FzfLua git_status <cr>",                           desc = "Show status",                          nowait = true, remap = false },
+  { "<leader>h",  "<cmd>nohlsearch<CR>",                                   desc = "No Highlight",                         nowait = true, remap = false },
+  { "<leader>l",  group = "LSP",                                           nowait = true,                                 remap = false },
+  { "<leader>la", "<cmd>FzfLua lsp_code_actions <cr>",                     desc = "Code Action",                          nowait = true, remap = false },
+  { "<leader>ld", "<cmd>FzfLua diagnostics_workspace<cr>",                 desc = "Document Diagnostics",                 nowait = true, remap = false },
+  { "<leader>lf", "<cmd>Format<cr>",                                       desc = "Format",                               nowait = true, remap = false },
+  { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<CR>",               desc = "Next Diagnostic",                      nowait = true, remap = false },
+  { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>",               desc = "Prev Diagnostic",                      nowait = true, remap = false },
+  { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>",                   desc = "CodeLens Action",                      nowait = true, remap = false },
+  { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>",              desc = "Quickfix",                             nowait = true, remap = false },
+  { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>",                     desc = "Rename",                               nowait = true, remap = false },
+  { "<leader>lw", "<cmd>FzfLua diagnostics_workspace<cr>",                 desc = "Workspace Diagnostics",                nowait = true, remap = false },
+  { "<leader>r",  "<cmd>FzfLua resume <cr>",                               desc = "Resume fzf",                           nowait = true, remap = false },
+  { "<leader>s",  group = "Search",                                        nowait = true,                                 remap = false },
+  { "<leader>sR", "<cmd>Fzf registers<cr>",                                desc = "Registers",                            nowait = true, remap = false },
+  { "<leader>sf", "<cmd>NvimTreeFindFile<cr>",                             desc = "Find File in Explorer",                nowait = true, remap = false },
+  { "<leader>sr", "<cmd>Fzf oldfiles<cr>",                                 desc = "Open Recent File",                     nowait = true, remap = false },
+  { "<leader>x",  group = "Util",                                          nowait = true,                                 remap = false },
+  { "<leader>xd", "<cmd>lua require('dbee').toggle()<cr>",                 desc = "Toggle sql ide",                       nowait = true, remap = false },
+  { "<leader>xi", "<cmd>IBLToggle<cr>",                                    desc = "Toggle indent lines",                  nowait = true, remap = false },
+  { "<leader>xm", "<cmd>FzfLua marks<cr>",                                 desc = "Marks",                                nowait = true, remap = false },
+  { "<leader>z",  "<cmd>:%bd|e#|bd#<CR>",                                  desc = " lose All Buffers except current one", nowait = true, remap = false },
 }
 
 return {
@@ -98,8 +64,7 @@ return {
     vim.o.timeoutlen = 300
 
     local wk = require("which-key")
-    wk.register(mappings, opts)
-    wk.register(vmappings, vopts)
+    wk.add(mappings, opts)
   end,
   opts = {
     plugins = {
@@ -122,34 +87,12 @@ return {
       separator = "➜", -- symbol used between a key and it's label
       group = "+", -- symbol prepended to a group
     },
-    popup_mappings = {
-      scroll_down = "<c-d>", -- binding to scroll down inside the popup
-      scroll_up = "<c-u>",   -- binding to scroll up inside the popup
-    },
-    window = {
-      border = "rounded",       -- none, single, double, shadow
-      position = "bottom",      -- bottom, top
-      margin = { 0, 0, 0, 0 },  -- extra window margin [top, right, bottom, left]
-      padding = { 0, 0, 0, 0 }, -- extra window padding [top, right, bottom, left]
-      winblend = 0,
-    },
     layout = {
-      height = { min = 4, max = 25 },                                             -- min and max height of the columns
-      width = { min = 20, max = 50 },                                             -- min and max width of the columns
-      spacing = 1,                                                                -- spacing between columns
-      align = "left",                                                             -- align columns left, center or right
+      height = { min = 4, max = 25 }, -- min and max height of the columns
+      width = { min = 20, max = 50 }, -- min and max width of the columns
+      spacing = 1,                    -- spacing between columns
+      align = "left",                 -- align columns left, center or right
     },
-    ignore_missing = true,                                                        -- enable this to hide mappings for which you didn't specify a label
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-    show_help = false,                                                            -- show help message on the command line when the popup is visible
-    triggers = "auto",                                                            -- automatically setup triggers
-    -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-      -- list of mode / prefixes that should never be hooked by WhichKey
-      -- this is mostly relevant for key maps that start with a native binding
-      -- most people should not need to change this
-      i = { "j", "k" },
-      v = { "j", "k" },
-    },
+    show_help = false, -- show help message on the command line when the popup is visible
   },
 }

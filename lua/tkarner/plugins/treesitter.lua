@@ -35,6 +35,8 @@ return {
         "vim",
         "yaml",
         "graphql",
+        "xml",
+        "http"
       },
       sync_install = false,
       ignore_install = { "" }, -- List of parsers to ignore installing
