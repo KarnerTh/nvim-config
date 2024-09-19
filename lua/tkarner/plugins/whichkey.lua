@@ -34,6 +34,7 @@ local mappings =
   { "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>",                        desc = "Preview Hunk",                         nowait = true, remap = false },
   { "<leader>gr", "<cmd>Gitsigns reset_hunk<cr>",                          desc = "Reset Hunk",                           nowait = true, remap = false },
   { "<leader>gs", "<cmd>FzfLua git_status <cr>",                           desc = "Show status",                          nowait = true, remap = false },
+  { "<leader>gm", "<cmd>GitConflictListQf <cr>",                           desc = "Show stuff to merge",                  nowait = true, remap = false },
   { "<leader>h",  "<cmd>nohlsearch<CR>",                                   desc = "No Highlight",                         nowait = true, remap = false },
   { "<leader>l",  group = "LSP",                                           nowait = true,                                 remap = false },
   { "<leader>la", "<cmd>FzfLua lsp_code_actions <cr>",                     desc = "Code Action",                          nowait = true, remap = false },
@@ -93,6 +94,6 @@ return {
       spacing = 1,                    -- spacing between columns
       align = "left",                 -- align columns left, center or right
     },
-    show_help = false, -- show help message on the command line when the popup is visible
+    show_help = false,                -- show help message on the command line when the popup is visible
   },
 }
