@@ -58,7 +58,7 @@ return {
       lualine_a = { branch },
       lualine_b = {},
       lualine_c = { diagnostics, filename },
-      lualine_x = { diff, "encoding", filetype },
+      lualine_x = { "rest", diff, "encoding", filetype },
       lualine_y = { location },
       lualine_z = {},
     },
