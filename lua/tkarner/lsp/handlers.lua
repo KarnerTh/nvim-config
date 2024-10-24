@@ -78,8 +78,8 @@ local function lsp_keymaps(bufnr)
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
-    -- disable tsserver formatter, because prettier is used
+  if client.name == "ts_ls" then
+    -- disable ts_ls formatter, because prettier is used
     client.server_capabilities.documentFormattingProvider = false
   elseif client.name == "jsonls" then
     client.server_capabilities.documentFormattingProvider = false

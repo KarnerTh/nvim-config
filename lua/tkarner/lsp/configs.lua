@@ -10,7 +10,7 @@ local servers = {
   "prismals",
   "svelte",
   "terraformls",
-  "tsserver",
+  "ts_ls",
   "yamlls",
   "vacuum",
   "csharp_ls"
